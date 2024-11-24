@@ -12,11 +12,11 @@ public class Mole : MonoBehaviour {
     [Header("Gerenciador do Jogo")]
     [SerializeField] private GameManager gameManager;  // Refer�ncia ao GameManager
 
-    // Posi��o inicial e final do mole (usadas para animar o surgimento e oculta��o)
+    // Posicao inicial e final do mole (usadas para animar o surgimento e ocultacao)
     private Vector2 startPosition = new Vector2(0f, -2.56f);
     private Vector2 endPosition = Vector2.zero;
 
-    // Dura��o das anima��es e tempo de exibi��o do mole
+    // Duracao das animacoes e tempo de exibicao do mole
     private float showDuration = 0.5f;
     private float duration = 1f;
 
@@ -165,7 +165,7 @@ public class Mole : MonoBehaviour {
         duration = Random.Range(durationMin, durationMax);
     }
 
-    // Configura��es iniciais do mole
+    // Configuracoes iniciais do mole
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -177,19 +177,19 @@ public class Mole : MonoBehaviour {
         boxSizeHidden = new Vector2(boxSize.x, 0f);
     }
 
-    // Ativa o mole com base no n�vel atual
+    // Ativa o mole com base no nivel atual
     public void Activate(int level) {
         SetLevel(level);
         CreateNext();
         StartCoroutine(ShowHide(startPosition, endPosition));
     }
 
-    // Define o �ndice �nico do mole
+    // Define o indice inico do mole
     public void SetIndex(int index) {
         moleIndex = index;
     }
 
-    // Para o jogo, interrompendo todas as anima��es do mole
+    // Para o jogo, interrompendo todas as animacoes do mole
     public void StopGame() {
         hittable = false;
         StopAllCoroutines();

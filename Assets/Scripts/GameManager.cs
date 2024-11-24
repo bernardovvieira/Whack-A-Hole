@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// M�todo p�blico para iniciar o jogo, chamado pelo bot�o de "Play".
+    /// Metodo publico para iniciar o jogo, chamado pelo bot�o de "Play".
     public void StartGame()
     {
         // Captura o nome do jogador ou usa um nome padr�o
@@ -135,16 +135,16 @@ public class GameManager : MonoBehaviour
         if (type == 0)
         {
             endTimePanel.SetActive(true);  // Exibe o painel de fim de jogo por tempo
-            finalScoreText.text = $"Sua pontua��o final: {score} pontos"; // Mostra a pontua��o final
+            finalScoreText.text = $"Sua pontuação final: {score} pontos"; // Mostra a pontua��o final
         }
         else
         {
             endBombPanel.SetActive(true);  // Exibe o painel de fim de jogo por bomba
-            finalScoreText.text = $"Sua pontua��o final: {score} pontos"; // Mostra a pontua��o final
+            finalScoreText.text = $"Sua pontuação final: {score} pontos"; // Mostra a pontua��o final
         }
 
 
-        // Salvar a pontua��o no ranking
+        // Salvar a pontuacao no ranking
         SaveScore();
 
         // Ativar o bot�o de reiniciar e o bot�o de voltar ao menu
@@ -157,12 +157,12 @@ public class GameManager : MonoBehaviour
             mole.StopGame();
         }
 
-        // Finalizar o jogo e mostrar o bot�o de rein�cio
+        // Finalizar o jogo e mostrar o botao de rein�cio
         playing = false;
         playButton.SetActive(true);
     }
 
-    /// Salva a pontua��o do jogador no sistema de ranking.
+    /// Salva a pontuacao do jogador no sistema de ranking.
     private void SaveScore()
     {
         if (rankingManager != null)
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("RankingManager n�o est� atribu�do!");
+            Debug.LogWarning("RankingManager não está atribuído!");
         }
     }
 
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
             }
             timeText.text = $"{(int)timeRemaining / 60}:{(int)timeRemaining % 60:D2}";
 
-            // Verificar se � necess�rio ativar mais moles
+            // Verificar se e necessario ativar mais moles
             if (currentMoles.Count <= (score / 10))
             {
                 int index = Random.Range(0, moles.Count);
@@ -203,7 +203,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    /// Incrementa a pontua��o e atualiza o estado do jogo ao acertar um mole.
+    /// Incrementa a pontuacao e atualiza o estado do jogo ao acertar um mole.
     public void AddScore(int moleIndex)
     {
         score += 1;
@@ -222,21 +222,21 @@ public class GameManager : MonoBehaviour
         currentMoles.Remove(moles[moleIndex]); // Remove o mole da lista de ativos
     }
 
-    /// Reinicia o jogo (bot�o de reiniciar)
+    /// Reinicia o jogo (botao de reiniciar)
     public void RestartGame()
     {
-        // Ocultar os pain�is de fim de jogo, o bot�o de reiniciar e o bot�o de voltar ao menu
+        // Ocultar os pain�is de fim de jogo, o botao de reiniciar e o botao de voltar ao menu
         endBombPanel.SetActive(false);
         endTimePanel.SetActive(false);
         restartButton.SetActive(false);
         returnToMenuButton.SetActive(false);
-        finalScoreText.text = ""; // Limpar o texto da pontua��o final
+        finalScoreText.text = ""; // Limpar o texto da pontuacaoo final
 
         // Iniciar o jogo novamente
         StartGame();
     }
 
-    /// Volta para o menu principal e encerra o jogo atual (bot�o "Voltar ao Menu")
+    /// Volta para o menu principal e encerra o jogo atual (botao "Voltar ao Menu")
     public void ReturnToMenu()
     {
         // Parar todos os moles
