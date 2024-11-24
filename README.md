@@ -25,9 +25,9 @@
 
 # Documentação Técnica
 
-## Estrutura do Projeto
-
 Confira o detalhamento da estrutura do projeto, scripts, execução e tecnologias empregadas.
+
+## Estrutura do Projeto
 
 ### Principais Scripts
 1. GameManager.cs
