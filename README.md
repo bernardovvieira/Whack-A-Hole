@@ -12,9 +12,9 @@
 ## Como Jogar
 1. Clique no botão Play para iniciar.
 2. Acerte as toupeiras que surgirem na tela:
-- Toupeiras comuns: +1 ponto.
-- Toupeiras com capacete: requerem dois cliques para serem eliminadas.
-- Bombas: finalizam o jogo.
+_ - Toupeiras comuns: +1 ponto.
+_ - Toupeiras com capacete: requerem dois cliques para serem eliminadas.
+_ - Bombas: finalizam o jogo.
 3. Evite errar, pois isso reduz o tempo restante.
 4. Tente superar seu recorde antes que o tempo acabe!
 
@@ -25,53 +25,60 @@
 
 ### Principais Scripts
 1. GameManager.cs
-- Gerencia o estado do jogo (início, fim, pontuação, tempo).
-- Controla a interface do usuário (painéis, botões e ranking).
+_ - Gerencia o estado do jogo (início, fim, pontuação, tempo).
+_ - Controla a interface do usuário (painéis, botões e ranking).
 2. Mole.cs
-- Gerencia o comportamento das toupeiras (aparecimento, tipos, resposta a cliques).
-- Define a dificuldade com base no nível.
+_ - Gerencia o comportamento das toupeiras (aparecimento, tipos, resposta a cliques).
+_ - Define a dificuldade com base no nível.
 3. RankingManager.cs
-- Gerencia o sistema de ranking (adicionar, ordenar, limpar e salvar os dados).
+_ - Gerencia o sistema de ranking (adicionar, ordenar, limpar e salvar os dados).
 
 ### Classes Principais
+
 *GameManager*
+
 _Responsável por:_
--Controle do estado do jogo.
--Interação com elementos visuais e sonoros.
--Integração com o sistema de ranking.
+_ -Controle do estado do jogo.
+_ -Interação com elementos visuais e sonoros.
+_ -Integração com o sistema de ranking.
+
 _Principais métodos:_
-- StartGame(): inicializa o jogo.
-- GameOver(int type): finaliza o jogo (por tempo ou bomba).
-- AddScore(int moleIndex): incrementa a pontuação.
-- RestartGame(): reinicia o jogo.
-- ShowRanking(): exibe o painel de ranking.
+_ - StartGame(): inicializa o jogo.
+_ - GameOver(int type): finaliza o jogo (por tempo ou bomba).
+_ - AddScore(int moleIndex): incrementa a pontuação.
+_ - RestartGame(): reinicia o jogo.
+_ - ShowRanking(): exibe o painel de ranking.
 
 *Mole*
+
 _Reponsável por:_
-- Controla as toupeiras, seu tipo (comum, capacete, bomba) e interações.
+_ - Controla as toupeiras, seu tipo (comum, capacete, bomba) e interações.
+
 _Principais métodos:_
-- Activate(int level): ativa uma toupeira com base na dificuldade.
-- OnMouseDown(): responde ao clique do jogador.
-- Hide(): oculta a toupeira.
+_ - Activate(int level): ativa uma toupeira com base na dificuldade.
+_ - OnMouseDown(): responde ao clique do jogador.
+_ - Hide(): oculta a toupeira.
 
 *RankingManager*
+
 _Responsável por:_
-- Gerencia o ranking, ordenando e salvando as melhores pontuações.
+_ - Gerencia o ranking, ordenando e salvando as melhores pontuações.
+
 _Principais métodos:_
-- AddOrUpdateScore(string playerName, int score): adiciona ou atualiza uma pontuação.
-- LoadRanking(): carrega o ranking salvo.
-- ClearRanking(): limpa os dados de ranking.
+_ - AddOrUpdateScore(string playerName, int score): adiciona ou atualiza uma pontuação.
+_ - LoadRanking(): carrega o ranking salvo.
+_ - ClearRanking(): limpa os dados de ranking.
   
 ## Como Executar o Projeto
 
 1. Pré-requisitos:
-- Unity 2021.3 ou superior.
+_ - Unity 2021.3 ou superior.
 2. Passos:
-- Clone o repositório.
-- Abra o projeto no Unity.
-- Execute a cena principal (MainScene).
+_ - Clone o repositório.
+_ - Abra o projeto no Unity.
+_ - Execute a cena principal (MainScene).
 3. Controles:
-- Use o mouse para interagir com as toupeiras e botões.
+_ - Use o mouse para interagir com as toupeiras e botões.
 
 ## Tecnologias Utilizadas
 - Engine: Unity
