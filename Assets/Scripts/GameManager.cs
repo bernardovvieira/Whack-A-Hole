@@ -246,6 +246,9 @@ public class GameManager : MonoBehaviour
             mole.StopGame();
         }
 
+        audioSource.Stop();
+        audioSource.PlayOneShot(gameMenuSound);
+
         // Resetar o estado do jogo
         currentMoles.Clear();
         score = 0;
