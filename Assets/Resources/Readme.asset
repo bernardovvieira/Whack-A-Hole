@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe0449fcc778394f94cb8c89c5a13d7, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Title: Whack-A-Hole
+  Sections:
+  - 
+  - '>> Sobre o jogo:'
+  - "\"Whack-a-Mole\" \xE9 um jogo divertido e desafiador onde voc\xEA precisa agir
+    r\xE1pido para acertar os \"moles\" (toupeiras) que surgem de buracos espalhados
+    pela tela. A cada acerto, voc\xEA ganha pontos, mas tome cuidado! Se errar, o
+    tempo ser\xE1 reduzido e, se acertar uma bomba, ser\xE1 eliminado. O objetivo
+    \xE9 acumular a maior pontua\xE7\xE3o poss\xEDvel antes que o tempo acabe. Enfrente
+    os diferentes n\xEDveis de dificuldade progressivos e tente superar seu pr\xF3prio
+    recorde no ranking! Prepare-se para uma experi\xEAncia emocionante e prove sua
+    habilidade em reflexos r\xE1pidos!"
+  - 
+  - '>> Funcionalidades: '
+  - "- Sistema de Pontua\xE7\xE3o e Ranking: acompanhe sua pontua\xE7\xE3o em tempo
+    real e registre seus recordes."
+  - "- V\xE1rios N\xEDveis de Dificuldade: o jogo aumenta progressivamente o desafio."
+  - '- Feedback Visual e Sonoro: respostas claras para acertos, erros e fim de jogo.'
+  - "- Gest\xE3o de Ranking: visualize, atualize e limpe o ranking de melhores jogadores."
+  - "- Interface Intuitiva: pain\xE9is de in\xEDcio, sobre, fim de jogo e ranking
+    acess\xEDveis."
+  - 
+  - '>> Como jogar:'
+  - "1. Clique no bot\xE3o Play para iniciar."
+  - '2. Acerte as toupeiras que surgirem na tela (Toupeiras comuns: +1 ponto; toupeiras
+    com capacete: requerem dois cliques para serem eliminadas; bombas: finalizam
+    o jogo).'
+  - 3. Evite errar, pois isso reduz o tempo restante.
+  - 4. Tente superar seu recorde antes que o tempo acabe!
