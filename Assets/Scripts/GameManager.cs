@@ -1,50 +1,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Timeline.Actions;
 
-/// Gerenciador principal do jogo, controla o estado geral, interface do usuário e lógica de jogo.
+/// Gerenciador principal do jogo, controla o estado geral, interface do usuï¿½rio e lï¿½gica de jogo.
 public class GameManager : MonoBehaviour
 {
     // Lista de objetos Mole no jogo
     [SerializeField] private List<Mole> moles;
 
     [Header("Objetos de UI")]
-    [SerializeField] private GameObject playButton;      // Botão de iniciar o jogo
+    [SerializeField] private GameObject playButton;      // Botï¿½o de iniciar o jogo
     [SerializeField] private GameObject gameUI;          // Interface de jogo
-    [SerializeField] private GameObject startPanel;      // Painel de início
+    [SerializeField] private GameObject startPanel;      // Painel de inï¿½cio
     [SerializeField] private TMPro.TextMeshProUGUI timeText;  // Texto do tempo restante
-    [SerializeField] private TMPro.TextMeshProUGUI scoreText; // Texto da pontuação
+    [SerializeField] private TMPro.TextMeshProUGUI scoreText; // Texto da pontuaï¿½ï¿½o
     [SerializeField] private GameObject endBombPanel;     // Painel de fim de jogo (bomba explodiu)
     [SerializeField] private GameObject endTimePanel;     // Painel de fim de jogo (tempo acabou)
-    [SerializeField] private GameObject restartButton;    // Botão de reiniciar o jogo
-    [SerializeField] private GameObject returnToMenuButton; // Botão de voltar ao menu
-    [SerializeField] private TextMeshProUGUI finalScoreText; // Texto da pontuação final
+    [SerializeField] private GameObject restartButton;    // Botï¿½o de reiniciar o jogo
+    [SerializeField] private GameObject returnToMenuButton; // Botï¿½o de voltar ao menu
+    [SerializeField] private TextMeshProUGUI finalScoreText; // Texto da pontuaï¿½ï¿½o final
 
     [Header("Ranking UI")]
-    [SerializeField] private RankingManager rankingManager; // Referência ao RankingManager
+    [SerializeField] private RankingManager rankingManager; // Referï¿½ncia ao RankingManager
     [SerializeField] private TMP_InputField playerNameInput; // Campo para o nome do jogador
-    private string playerName = "Jogador"; // Nome padrão do jogador
+    private string playerName = "Jogador"; // Nome padrï¿½o do jogador
     [SerializeField] private GameObject rankingPanel; // Painel do ranking
     [SerializeField] private TextMeshProUGUI rankingText; // Campo de texto do ranking
 
     [Header("Sobre UI")]
-    [SerializeField] private GameObject aboutPanel; // Painel de informações sobre o jogo
+    [SerializeField] private GameObject aboutPanel; // Painel de informaï¿½ï¿½es sobre o jogo
 
     [Header("Sons")]
+    [SerializeField] private AudioClip gameMenuSound; // Som de fundo na tela de menu
+    [SerializeField] private AudioClip buttonClickSound; // Som ao apertar os botÃµes
     [SerializeField] private AudioClip gameOverSound; // Som de fim de jogo
+    [SerializeField] private AudioClip gameOverSound2; // Som de fim de jogo 2
     [SerializeField] private AudioClip backgroundSound; // Som de fundo
-    [SerializeField] private AudioSource audioSource; // Fonte de áudio para tocar os sons
+    [SerializeField] private AudioClip bonkHitSound; // Som ao acertar a toupeira
+    [SerializeField] private AudioClip bombExplosion; // Som de explosÃ£o da bomba
+    [SerializeField] private AudioSource audioSource; // Fonte de ï¿½udio para tocar os sons
 
-    // Variáveis configuráveis (ajustáveis no código)
+    // Variï¿½veis configurï¿½veis (ajustï¿½veis no cï¿½digo)
     private float startingTime = 30f; // Tempo inicial do jogo
 
-    // Variáveis globais
+    // Variï¿½veis globais
     private float timeRemaining; // Tempo restante
     private HashSet<Mole> currentMoles = new HashSet<Mole>(); // Moles atualmente ativos
-    private int score; // Pontuação do jogador
-    private bool playing = false; // Indica se o jogo está em andamento
+    private int score; // Pontuaï¿½ï¿½o do jogador
+    private bool playing = false; // Indica se o jogo estï¿½ em andamento
 
-    // Ocultar endBombPanel e endTimePanel no início
+    // Ocultar endBombPanel e endTimePanel no inï¿½cio
     void Start()
     {
         endBombPanel.SetActive(false);
@@ -52,31 +58,43 @@ public class GameManager : MonoBehaviour
         rankingPanel.SetActive(false);
         aboutPanel.SetActive(false);
 
-        // Obtém o componente AudioSource do GameObject se não tiver sido atribuído
+        // Obtï¿½m o componente AudioSource do GameObject se nï¿½o tiver sido atribuï¿½do
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
         }
+
+        audioSource.PlayOneShot(gameMenuSound);
     }
 
-    /// Método público para iniciar o jogo, chamado pelo botão de "Play".
-    /// Método público para iniciar o jogo, chamado pelo botão de "Play".
+
+    /// Som ao apertar os botÃµes.
+    public void ButtonSound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
+    /// Mï¿½todo pï¿½blico para iniciar o jogo, chamado pelo botï¿½o de "Play".
     public void StartGame()
     {
-        // Captura o nome do jogador ou usa um nome padrão
+        // Captura o nome do jogador ou usa um nome padrï¿½o
         playerName = string.IsNullOrWhiteSpace(playerNameInput.text) ? "Jogador" : playerNameInput.text.Trim();
 
-        // Ocultar o painel de início
+        // Ocultar o painel de inï¿½cio
         startPanel.SetActive(false);
 
-        // Configurar interface do usuário
+        // Configurar interface do usuï¿½rio
         playButton.SetActive(false);
         gameUI.SetActive(true);
 
+        audioSource.Stop();
         // Iniciar o som de fundo
         audioSource.PlayOneShot(backgroundSound);
 
-        // Ocultar todos os moles e configurar seus índices
+        // Ocultar todos os moles e configurar seus ï¿½ndices
         for (int i = 0; i < moles.Count; i++)
         {
             moles[i].Hide();
@@ -91,6 +109,14 @@ public class GameManager : MonoBehaviour
         playing = true;
     }
 
+    /// Efeito sonoro ao acertar a toupeira.
+    public void PlayBonkSound()
+    {
+        if (audioSource != null && bonkHitSound != null)
+        {
+            audioSource.PlayOneShot(bonkHitSound);
+        }
+    }
 
     /// Finaliza o jogo, exibindo a mensagem apropriada.
     public void GameOver(int type)
@@ -98,27 +124,33 @@ public class GameManager : MonoBehaviour
         // Parar o som de fundo
         audioSource.Stop();
 
+        // Toca som de explosÃ£o da bomba
+        audioSource.PlayOneShot(bombExplosion);
+
         // Toca o som de fim de jogo
         audioSource.PlayOneShot(gameOverSound);
+
+        // Toca o segundo som de fim de jogo
+        audioSource.PlayOneShot(gameOverSound2);
 
         if (type == 0)
         {
             endTimePanel.SetActive(true);  // Exibe o painel de fim de jogo por tempo
-            finalScoreText.text = $"Sua pontuação final: {score} pontos"; // Mostra a pontuação final
+            finalScoreText.text = $"Sua pontuaï¿½ï¿½o final: {score} pontos"; // Mostra a pontuaï¿½ï¿½o final
         }
         else
         {
             endBombPanel.SetActive(true);  // Exibe o painel de fim de jogo por bomba
-            finalScoreText.text = $"Sua pontuação final: {score} pontos"; // Mostra a pontuação final
+            finalScoreText.text = $"Sua pontuaï¿½ï¿½o final: {score} pontos"; // Mostra a pontuaï¿½ï¿½o final
         }
 
 
-        // Salvar a pontuação no ranking
+        // Salvar a pontuaï¿½ï¿½o no ranking
         SaveScore();
 
-        // Ativar o botão de reiniciar e o botão de voltar ao menu
-        restartButton.SetActive(true);  // Torna o botão de reiniciar visível
-        returnToMenuButton.SetActive(true); // Torna o botão de voltar ao menu visível
+        // Ativar o botï¿½o de reiniciar e o botï¿½o de voltar ao menu
+        restartButton.SetActive(true);  // Torna o botï¿½o de reiniciar visï¿½vel
+        returnToMenuButton.SetActive(true); // Torna o botï¿½o de voltar ao menu visï¿½vel
 
         // Parar todos os moles
         foreach (Mole mole in moles)
@@ -126,21 +158,21 @@ public class GameManager : MonoBehaviour
             mole.StopGame();
         }
 
-        // Finalizar o jogo e mostrar o botão de reinício
+        // Finalizar o jogo e mostrar o botï¿½o de reinï¿½cio
         playing = false;
         playButton.SetActive(true);
     }
 
-    /// Salva a pontuação do jogador no sistema de ranking.
+    /// Salva a pontuaï¿½ï¿½o do jogador no sistema de ranking.
     private void SaveScore()
     {
         if (rankingManager != null)
         {
-            rankingManager.AddOrUpdateScore(playerName, score);  // Usando o novo método
+            rankingManager.AddOrUpdateScore(playerName, score);  // Usando o novo mï¿½todo
         }
         else
         {
-            Debug.LogWarning("RankingManager não está atribuído!");
+            Debug.LogWarning("RankingManager nï¿½o estï¿½ atribuï¿½do!");
         }
     }
 
@@ -158,7 +190,7 @@ public class GameManager : MonoBehaviour
             }
             timeText.text = $"{(int)timeRemaining / 60}:{(int)timeRemaining % 60:D2}";
 
-            // Verificar se é necessário ativar mais moles
+            // Verificar se ï¿½ necessï¿½rio ativar mais moles
             if (currentMoles.Count <= (score / 10))
             {
                 int index = Random.Range(0, moles.Count);
@@ -172,7 +204,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    /// Incrementa a pontuação e atualiza o estado do jogo ao acertar um mole.
+    /// Incrementa a pontuaï¿½ï¿½o e atualiza o estado do jogo ao acertar um mole.
     public void AddScore(int moleIndex)
     {
         score += 1;
@@ -191,21 +223,21 @@ public class GameManager : MonoBehaviour
         currentMoles.Remove(moles[moleIndex]); // Remove o mole da lista de ativos
     }
 
-    /// Reinicia o jogo (botão de reiniciar)
+    /// Reinicia o jogo (botï¿½o de reiniciar)
     public void RestartGame()
     {
-        // Ocultar os painéis de fim de jogo, o botão de reiniciar e o botão de voltar ao menu
+        // Ocultar os painï¿½is de fim de jogo, o botï¿½o de reiniciar e o botï¿½o de voltar ao menu
         endBombPanel.SetActive(false);
         endTimePanel.SetActive(false);
         restartButton.SetActive(false);
         returnToMenuButton.SetActive(false);
-        finalScoreText.text = ""; // Limpar o texto da pontuação final
+        finalScoreText.text = ""; // Limpar o texto da pontuaï¿½ï¿½o final
 
         // Iniciar o jogo novamente
         StartGame();
     }
 
-    /// Volta para o menu principal e encerra o jogo atual (botão "Voltar ao Menu")
+    /// Volta para o menu principal e encerra o jogo atual (botï¿½o "Voltar ao Menu")
     public void ReturnToMenu()
     {
         // Parar todos os moles
@@ -224,17 +256,17 @@ public class GameManager : MonoBehaviour
         // Ocultar a interface de jogo
         gameUI.SetActive(false);
 
-        // Exibir o painel de início (menu principal)
+        // Exibir o painel de inï¿½cio (menu principal)
         startPanel.SetActive(true);
 
-        // Esconder o painel de fim de jogo, botão de reiniciar e botão de voltar ao menu
+        // Esconder o painel de fim de jogo, botï¿½o de reiniciar e botï¿½o de voltar ao menu
         endBombPanel.SetActive(false);
         endTimePanel.SetActive(false);
         restartButton.SetActive(false);
         returnToMenuButton.SetActive(false);
-        finalScoreText.text = ""; // Limpar o texto da pontuação final
+        finalScoreText.text = ""; // Limpar o texto da pontuaï¿½ï¿½o final
 
-        // Exibir o botão "Play" para reiniciar o jogo
+        // Exibir o botï¿½o "Play" para reiniciar o jogo
         playButton.SetActive(true);
     }
 
@@ -244,7 +276,7 @@ public class GameManager : MonoBehaviour
         // Limpa o texto de ranking antes de exibir novamente
         rankingText.text = "";
 
-        // Atualiza o texto do ranking com as pontuações
+        // Atualiza o texto do ranking com as pontuaï¿½ï¿½es
         UpdateRankingText();
 
         // Exibe o painel de ranking
@@ -278,7 +310,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Método para limpar o ranking
+    // Mï¿½todo para limpar o ranking
     public void ClearRanking()
     {
         // Limpa o ranking no RankingManager

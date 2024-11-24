@@ -2,21 +2,21 @@ using System.Collections;
 using UnityEngine;
 
 public class Mole : MonoBehaviour {
-    [Header("Gráficos")]
-    [SerializeField] private Sprite mole;              // Sprite do mole padrão
+    [Header("Grï¿½ficos")]
+    [SerializeField] private Sprite mole;              // Sprite do mole padrï¿½o
     [SerializeField] private Sprite moleHardHat;       // Sprite do mole com capacete
     [SerializeField] private Sprite moleHatBroken;     // Sprite do capacete quebrado
     [SerializeField] private Sprite moleHit;           // Sprite do mole acertado
     [SerializeField] private Sprite moleHatHit;        // Sprite do capacete ao ser atingido
 
     [Header("Gerenciador do Jogo")]
-    [SerializeField] private GameManager gameManager;  // Referência ao GameManager
+    [SerializeField] private GameManager gameManager;  // Referï¿½ncia ao GameManager
 
-    // Posição inicial e final do mole (usadas para animar o surgimento e ocultação)
+    // Posiï¿½ï¿½o inicial e final do mole (usadas para animar o surgimento e ocultaï¿½ï¿½o)
     private Vector2 startPosition = new Vector2(0f, -2.56f);
     private Vector2 endPosition = Vector2.zero;
 
-    // Duração das animações e tempo de exibição do mole
+    // Duraï¿½ï¿½o das animaï¿½ï¿½es e tempo de exibiï¿½ï¿½o do mole
     private float showDuration = 0.5f;
     private float duration = 1f;
 
@@ -25,20 +25,20 @@ public class Mole : MonoBehaviour {
     private Animator animator;
     private BoxCollider2D boxCollider2D;
 
-    // Parâmetros do colisor
+    // Parï¿½metros do colisor
     private Vector2 boxOffset;
     private Vector2 boxSize;
     private Vector2 boxOffsetHidden;
     private Vector2 boxSizeHidden;
 
-    // Parâmetros do mole
+    // Parï¿½metros do mole
     private bool hittable = true; // Define se o mole pode ser acertado
     public enum MoleType { Standard, HardHat, Bomb }; // Tipos de mole
     private MoleType moleType;  // Tipo atual do mole
     private float hardRate = 0.25f; // Probabilidade de mole com capacete
     private float bombRate = 0f;    // Probabilidade de mole bomba
     private int lives;              // Vidas restantes do mole
-    private int moleIndex = 0;      // Índice único do mole
+    private int moleIndex = 0;      // ï¿½ndice ï¿½nico do mole
 
     // Corrotina para animar o aparecimento e desaparecimento do mole
     private IEnumerator ShowHide(Vector2 start, Vector2 end) {
@@ -98,6 +98,7 @@ public class Mole : MonoBehaviour {
     {
         if (hittable)
         {
+            gameManager.PlayBonkSound();
 
             switch (moleType)
             {
@@ -155,7 +156,7 @@ public class Mole : MonoBehaviour {
         hittable = true;
     }
 
-    // Ajusta o nível do mole (dificuldade)
+    // Ajusta o nï¿½vel do mole (dificuldade)
     private void SetLevel(int level) {
         bombRate = Mathf.Min(level * 0.025f, 0.25f);
         hardRate = Mathf.Min(level * 0.025f, 1f);
@@ -164,7 +165,7 @@ public class Mole : MonoBehaviour {
         duration = Random.Range(durationMin, durationMax);
     }
 
-    // Configurações iniciais do mole
+    // Configuraï¿½ï¿½es iniciais do mole
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -176,19 +177,19 @@ public class Mole : MonoBehaviour {
         boxSizeHidden = new Vector2(boxSize.x, 0f);
     }
 
-    // Ativa o mole com base no nível atual
+    // Ativa o mole com base no nï¿½vel atual
     public void Activate(int level) {
         SetLevel(level);
         CreateNext();
         StartCoroutine(ShowHide(startPosition, endPosition));
     }
 
-    // Define o índice único do mole
+    // Define o ï¿½ndice ï¿½nico do mole
     public void SetIndex(int index) {
         moleIndex = index;
     }
 
-    // Para o jogo, interrompendo todas as animações do mole
+    // Para o jogo, interrompendo todas as animaï¿½ï¿½es do mole
     public void StopGame() {
         hittable = false;
         StopAllCoroutines();

@@ -971,6 +971,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -1815,6 +1827,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ShowRanking
         m_Mode: 1
         m_Arguments:
@@ -2116,6 +2140,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ReturnToMenu
@@ -2663,6 +2699,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ClearRanking
         m_Mode: 1
         m_Arguments:
@@ -2794,6 +2842,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ShowAbout
@@ -3305,6 +3365,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ReturnToMenuFromRanking
         m_Mode: 1
         m_Arguments:
@@ -3649,6 +3721,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ReturnToMenuFromAbout
@@ -4061,6 +4145,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RestartGame
@@ -4959,6 +5055,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RestartGame
@@ -6117,6 +6225,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1985219925}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ButtonSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1985219925}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
@@ -6848,8 +6968,13 @@ MonoBehaviour:
   rankingPanel: {fileID: 0}
   rankingText: {fileID: 0}
   aboutPanel: {fileID: 0}
+  gameMenuSound: {fileID: 0}
+  buttonClickSound: {fileID: 0}
   gameOverSound: {fileID: 0}
+  gameOverSound2: {fileID: 0}
   backgroundSound: {fileID: 0}
+  bonkHitSound: {fileID: 0}
+  bombExplosion: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!1 &1885800084
 GameObject:
@@ -7185,8 +7310,13 @@ MonoBehaviour:
   rankingPanel: {fileID: 588974409}
   rankingText: {fileID: 240068676}
   aboutPanel: {fileID: 513469468}
+  gameMenuSound: {fileID: 8300000, guid: 9d476eb7b61f33c45b130eaaae1b15d5, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: d4e5811d485ecc041a4fe5cd79a70848, type: 3}
   gameOverSound: {fileID: 8300000, guid: 8f072fbdf0602f34fad2e021be43789c, type: 3}
+  gameOverSound2: {fileID: 8300000, guid: 909d3268bdeaf934698beca8e508d0e4, type: 3}
   backgroundSound: {fileID: 8300000, guid: 8726b51d541856e4386182ffa366ba53, type: 3}
+  bonkHitSound: {fileID: 8300000, guid: ecb3c392931e6884d8c34a376f639469, type: 3}
+  bombExplosion: {fileID: 8300000, guid: 4e8d01d6ab1104b45ac9eee177ecb216, type: 3}
   audioSource: {fileID: 0}
 --- !u!4 &1985219926
 Transform:
