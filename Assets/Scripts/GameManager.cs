@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject endTimePanel;     // Painel de fim de jogo (tempo acabou)
     [SerializeField] private GameObject restartButton;    // Botão de reiniciar o jogo
     [SerializeField] private GameObject returnToMenuButton; // Botão de voltar ao menu
+    [SerializeField] private TextMeshProUGUI finalScoreText; // Texto da pontuação final
 
     [Header("Ranking UI")]
     [SerializeField] private RankingManager rankingManager; // Referência ao RankingManager
@@ -103,11 +104,14 @@ public class GameManager : MonoBehaviour
         if (type == 0)
         {
             endTimePanel.SetActive(true);  // Exibe o painel de fim de jogo por tempo
+            finalScoreText.text = $"Sua pontuação final: {score} pontos"; // Mostra a pontuação final
         }
         else
         {
             endBombPanel.SetActive(true);  // Exibe o painel de fim de jogo por bomba
+            finalScoreText.text = $"Sua pontuação final: {score} pontos"; // Mostra a pontuação final
         }
+
 
         // Salvar a pontuação no ranking
         SaveScore();
@@ -195,6 +199,7 @@ public class GameManager : MonoBehaviour
         endTimePanel.SetActive(false);
         restartButton.SetActive(false);
         returnToMenuButton.SetActive(false);
+        finalScoreText.text = ""; // Limpar o texto da pontuação final
 
         // Iniciar o jogo novamente
         StartGame();
@@ -227,6 +232,7 @@ public class GameManager : MonoBehaviour
         endTimePanel.SetActive(false);
         restartButton.SetActive(false);
         returnToMenuButton.SetActive(false);
+        finalScoreText.text = ""; // Limpar o texto da pontuação final
 
         // Exibir o botão "Play" para reiniciar o jogo
         playButton.SetActive(true);
