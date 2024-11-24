@@ -4,7 +4,7 @@
 
 ### Desenvolvedores
 
- O jogo desenvolvido pelos acadêmicos Bernardo Vivian Vieira (179835) e Yeun Haur Kang (193593), estudantes da Universidade de Passo Fundo (UPF) na disciplina Computação Gráfica e Realidade Virtual do sexto semestre de Ciência da Computação.
+ O jogo foi desenvolvido pelos acadêmicos Bernardo Vivian Vieira (179835) e Yeun Haur Kang (193593), estudantes da Universidade de Passo Fundo (UPF) na disciplina Computação Gráfica e Realidade Virtual do sexto semestre de Ciência da Computação.
 
 ## Funcionalidades
 - Sistema de Pontuação e Ranking: acompanhe sua pontuação em tempo real e registre seus recordes.
