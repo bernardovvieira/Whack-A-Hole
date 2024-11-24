@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Timeline.Actions;
 
 /// Gerenciador principal do jogo, controla o estado geral, interface do usu�rio e l�gica de jogo.
 public class GameManager : MonoBehaviour
